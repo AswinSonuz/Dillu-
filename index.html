@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Waiting for You ✨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Background -->
+<video autoplay muted loop id="bgVideo">
+  <source src="bg.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<!-- Main Card -->
+<div class="glass-card">
+  <h1 id="title">When are you coming? 💫</h1>
+
+  <div id="dateSection">
+    <input type="date" id="dateInput" />
+    <button onclick="saveDate()">Confirm</button>
+  </div>
+
+  <div id="countdownSection" class="hidden">
+    <div class="countdown">
+      <div><span id="days">0</span>Days</div>
+      <div><span id="hours">0</span>Hours</div>
+      <div><span id="minutes">0</span>Minutes</div>
+      <div><span id="seconds">0</span>Seconds</div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Trigger -->
+<div class="secret" onclick="openAdmin()">⋮</div>
+
+<!-- Admin Panel -->
+<div id="adminPanel" class="admin hidden">
+  <h2>Admin Settings</h2>
+  <input type="password" id="adminPass" placeholder="Passcode" />
+  <button onclick="unlockAdmin()">Unlock</button>
+
+  <div id="adminControls" class="hidden">
+    <button onclick="resetDate()">Reset Countdown</button>
+    <label>Blur Strength</label>
+    <input type="range" min="5" max="30" onchange="changeBlur(this.value)">
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
